@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <!-- Google Font for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons (exactly as in second code) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* --- Minimal, clean styling (matches the spirit of the original second code) --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      margin: 0;
+    }
+
+    .form-container {
+      background: white;
+      max-width: 720px;
+      width: 100%;
+      padding: 2rem 2.5rem;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.06);
+      transition: 0.2s;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .logo img {
+      height: 80px;
+      width: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .school-name {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #0b2b4a;
+      text-align: center;
+      margin-top: 0.2rem;
+      border-bottom: 3px solid rgb(35, 139, 244);
+      display: inline-block;
+      padding-bottom: 0.2rem;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 0.95rem;
+      margin: 0.5rem 0 1.8rem 0;
+      font-weight: 400;
+      background: #f8fafc;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+    }
+
+    .section-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0b2b4a;
+      margin: 1.8rem 0 1rem 0;
+      letter-spacing: 0.3px;
+      border-left: 6px solid gray;
+      padding-left: 12px;
+      background: #f9fbfd;
+      padding: 0.5rem 0 0.5rem 1rem;
+      border-radius: 0 20px 20px 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #1e2f3f;
+      margin: 0.8rem 0 0.2rem 0;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      background: #fafcff;
+      transition: 0.15s;
+      outline: none;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus {
+      border-color: #d4a843;
+      box-shadow: 0 0 0 4px rgba(212, 168, 67, 0.15);
+      background: white;
+    }
+
+    .row {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+    .row .field {
+      flex: 1 1 180px;
+    }
+
+    hr {
+      margin: 2rem 0 1rem 0;
+      border: 0;
+      height: 2px;
+      background: linear-gradient(to right, #e2e8f0, #d4a843, #e2e8f0);
+      opacity: 0.5;
+    }
+
+    .field {
+      margin-bottom: 0.8rem;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background: #0b2b4a;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 60px;
+      margin: 2rem 0 1.2rem 0;
+      cursor: pointer;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 14px rgba(11, 43, 74, 0.25);
+    }
+
+    button[type="submit"]:hover {
+      background: #1a3f62;
+      transform: scale(1.01);
+      box-shadow: 0 10px 20px rgba(11, 43, 74, 0.3);
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #4a5b6b;
+      text-align: center;
+      background: #f2f6fa;
+      padding: 1rem 1.2rem;
+      border-radius: 30px;
+      margin: 0.5rem 0 1.2rem 0;
+      line-height: 1.5;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+    .contact a {
+      color: #0b2b4a;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #d4a843;
+      padding-bottom: 2px;
+      transition: 0.1s;
+    }
+    .contact a:hover {
+      color: #d4a843;
+    }
+
+    /* small adjustments */
+    .field select {
+      appearance: auto;
+    }
+
+    /* status messages */
+    #formFeedback {
+      margin-top: 0.3rem;
+      font-weight: 500;
+      text-align: center;
+      padding: 0.5rem;
+      border-radius: 30px;
+    }
+    .feedback-success {
+      background: #dff0d8;
+      color: #2d6a2d;
+    }
+    .feedback-error {
+      background: #f8d7da;
+      color: #a12b3a;
+    }
+
+    @media (max-width: 550px) {
+      .form-container { padding: 1.5rem; }
+      .school-name { font-size: 1.5rem; }
+      .row { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<form class="form-container" id="regForm">
+  <!-- Logo (exactly as second code) -->
+  <div class="logo">
+    <img src="Endlovukazi Bagde.png">
+  </div>
+
+  <!-- School Name & Subtitle -->
+  <div class="school-name">ENDLOVUKAZI HIGH SCHOOL</div>
+  <div class="subtitle">Official Student Enrollment Application for the Academic Year.</div>
+
+  <!-- ======== STUDENT DETAILS ======== (all inputs from first code, underneath each other) -->
+  <div class="section-title"><i class="fas fa-user-graduate" style="margin-right:8px;"></i>STUDENT DETAILS</div>
+
+  <!-- Full Names -->
+  <label for="fullNames">Learner Full Names</label>
+  <input type="text" id="fullNames" placeholder="e.g. Thabo John" required>
+
+  <!-- Surname -->
+  <label for="surname">Surname</label>
+  <input type="text" id="surname" placeholder="e.g. Mokoena" required>
+
+  <!-- Age -->
+  <label for="age">Age</label>
+  <input type="number" id="age" placeholder="e.g. 16" min="5" max="25">
+
+  <!-- ID Number -->
+  <label for="idNumber">ID Number</label>
+  <input type="text" id="idNumber" placeholder="e.g. 051203 1234 081" maxlength="13" required>
+
+  <!-- Nationality -->
+  <label for="nationality">Nationality</label>
+  <input type="text" id="nationality" placeholder="e.g. South African">
+
+  <!-- Home Address -->
+  <label for="homeAddress">Home Address</label>
+  <input type="text" id="homeAddress" placeholder="12 Mandela St, Soweto">
+
+  <!-- Gender (select) -->
+  <div class="field">
+    <label for="gender">Gender</label>
+    <select id="gender">
+      <option value="">Select</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+
+   <div class="field">
+    <label for="race">Race</label>
+    <select id="race">
+      <option value="">Select</option>
+      <option value="Black">African</option>
+      <option value="White">Asian</option>
+      <option value="Coloured">Coloured</option>
+      <option value="Other">European</option>
+      <option value="Indian">Indian</option>
+    </select>
+  </div>
+
+ 
+  <div class="field">
+    <label for="grade">Grade</label>
+    <select id="grade">
+      <option value="">Select</option>
+      <option value="Grade 8">Grade 8</option>
+      <option value="Grade 9">Grade 9</option>
+      <option value="Grade 10">Grade 10</option>
+      <option value="Grade 11">Grade 11</option>
+      <option value="Grade 12">Grade 12</option>
+    </select>
+  </div>
+
+
+  <!-- Date of Birth -->
+  <label for="dob">Date of Birth</label>
+  <input type="date" id="dob">
+
+  <hr>
+
+  <!-- ======== PARENT / GUARDIAN DETAILS ======== -->
+  <div class="section-title"><i class="fas fa-user-friends" style="margin-right:8px;"></i>PARENT / GUARDIAN DETAILS</div>
+
+  <!-- Parent Full Names -->
+  <label for="parentFullNames">Parent Full Names</label>
+  <input type="text" id="parentFullNames" placeholder="e.g. Nomvula Mokoena">
+
+  <!-- Parent Surname -->
+  <label for="parentSurname">Parent Surname</label>
+  <input type="text" id="parentSurname" placeholder="e.g. Mokoena">
+
+  <!-- Relationship -->
+  <label for="relationship">Relationship</label>
+  <input type="text" id="relationship" placeholder="e.g. Mother, Father, Guardian">
+
+  <!-- Contact Number -->
+  <label for="contactNumber">Contact Number</label>
+  <input type="tel" id="contactNumber" placeholder="+27 82 123 4567" maxlength="10" required>
+
+  <!-- feedback area -->
+  <div id="formFeedback"></div>
+
+  <!-- SUBMIT BUTTON -->
+  <button type="submit" id="submitBtn">
+    <i class="fas fa-paper-plane" style="margin-right:8px;"></i> Submit Registration
+  </button>
+
+  <p class="note">
+    <i class="fas fa-check-circle" style="color:#d4a843;"></i> By submitting this form, I confirm that the information provided is accurate and complete, and I agree to the school's registration terms and conditions.
+  </p>
+
+  <div class="contact">
+    <a href="call:27810356236"><i class="fas fa-envelope"></i> Contact Admissions Office</a>
+  </div>
+</form>
+
+<!-- ======== JAVASCRIPT + APPS SCRIPT INTEGRATION ======== -->
+<script src="script EHS.js"></script>
+
+</body>
+</html>
