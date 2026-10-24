@@ -8,7 +8,7 @@
 //  ⚠️ STEP 1: REPLACE THIS URL WITH YOUR DEPLOYED APPS SCRIPT URL
 //  It must end with /exec
 // ----------------------------------------------------------------
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyrXOfgnnAiGH-BqP5SU4AewAMeu3F8HBJaT84FmEbnmZLOzmAzI7kQSF4Vd5K3xwJhRg/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXHZmAKgbMfaOFycXMG2kfd6cYkPrZML3ZVn87uoyVjzncv2nBOIRR1eOfB8rycW3ZXw/exec';
 
 // ----------------------------------------------------------------
 //  Main submission logic
